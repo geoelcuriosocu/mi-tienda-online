@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6366f7f0785fcd7985fd15fbeff82b78",
+    "content-hash": "b7390dd7ee8761a2f2652547173aa09d",
     "packages": [
         {
             "name": "apimatic/core",
@@ -17276,5 +17276,5 @@
         "ext-tokenizer": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }

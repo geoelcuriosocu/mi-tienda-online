@@ -20,6 +20,11 @@ if (! function_exists('image_url')) {
      */
     function image_url(string $path, string $template): ?string
     {
+        // LaLomita no muestra el logo de Bagisto ni contacta su servidor de actualizaciones.
+        if ($path === 'bagisto.png' && $template === 'logo') {
+            return null;
+        }
+
         return app(ImageUrlBuilder::class)->url($path, $template);
     }
 }

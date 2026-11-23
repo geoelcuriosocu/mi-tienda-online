@@ -132,10 +132,10 @@ return [
 
         'core' => [
             'channels' => [
-                'meta-description' => 'Descripción de Meta de la Tienda de Demostración',
-                'meta-keywords' => 'Palabras Clave de Meta de la Tienda de Demostración',
-                'meta-title' => 'Tienda de Demostración',
-                'name' => 'Predeterminado',
+                'meta-description' => 'LaLomita: moda y productos para tu tienda online.',
+                'meta-keywords' => 'tienda online, ecommerce, lalomita, moda',
+                'meta-title' => 'LaLomita - Tienda Online',
+                'name' => 'LaLomita',
             ],
 
             'currencies' => [
