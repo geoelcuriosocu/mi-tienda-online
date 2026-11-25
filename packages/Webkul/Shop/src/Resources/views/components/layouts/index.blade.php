@@ -82,6 +82,8 @@
             {!! core()->getConfigData('general.content.custom_scripts.custom_css') !!}
         </style>
 
+        @include('branding.overrides')
+
         @if(core()->getConfigData('general.content.speculation_rules.enabled'))
             <script type="speculationrules">
                 @json(core()->getSpeculationRules(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)

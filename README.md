@@ -253,6 +253,19 @@ npm run build
 - **Cambios de `.env` que no se aplican** → `php artisan optimize:clear`.
 - **Zona horaria incorrecta en pedidos** → verificá `APP_TIMEZONE` y despejá caché de configuración.
 
+## Identidad visual LaLomita
+
+Los recursos oficiales están centralizados en `public/assets/branding/`:
+
+- `mascota-original.png`: arte original del campesino (referencia única, no se sustituye).
+- `mascota-transparente.png` y `mascota-movil-transparente.png`: versiones con fondo transparente.
+- `mascota-circular-1024.png`, `icono-app-192.png`, `icono-app-512.png`.
+- `logo-principal.svg`, `logo-horizontal.svg`, `logo-claro.svg`, `logo-oscuro.svg`, `isotipo.svg`, `favicon.svg`, `favicon.ico`.
+
+Los colores definitivos, extraídos del logotipo, están en `config/branding.php` y en las variables `--color-lalomita-*` de los CSS de los temas. La mascota se usa con criterio en el hero, el 404, el carrito vacío, el acceso al panel y las plantillas de correo.
+
+Los SVG/favicon fuente de los paquetes ya fueron reemplazados, así que un `npm run build` dentro de cada paquete no revierte la marca.
+
 ## Créditos
 
 Basado en **Bagisto**, de Webkul Software, bajo licencia MIT. Se conserva el aviso de copyright original en [`LICENSE`](LICENSE). Las personalizaciones y la identidad visual son de LaLomita.

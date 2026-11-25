@@ -94,6 +94,8 @@
         {!! core()->getConfigData('general.content.custom_scripts.custom_css') !!}
     </style>
 
+    @include('branding.overrides')
+
     {!! view_render_event('bagisto.admin.layout.head.after') !!}
 </head>
 
