@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Isotipo LaLomita">
+  <title>Isotipo LaLomita</title>
+  <circle cx="32" cy="32" r="30" fill="#F28C11" stroke="#2B1406" stroke-width="3"/>
+  <path d="M32 50C21 44 17 35 21 27c9 0 15 6 16 14 1-9 8-15 16-15 3 10-3 18-13 23-2 1-5 1-8 1Z" fill="#409C06" stroke="#2B1406" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="45" cy="45" r="7" fill="#CE1616" stroke="#2B1406" stroke-width="2"/>
+</svg>
