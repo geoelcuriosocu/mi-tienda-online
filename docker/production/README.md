@@ -530,7 +530,7 @@ docker run --name bagisto -p 80:80 webkul/bagisto:latest
 ```bash
 docker run -d --name bagisto -p 80:80 \
   -e APP_URL=http://my-store.local \
-  -e APP_TIMEZONE=Asia/Kolkata \
+  -e APP_TIMEZONE=UTC \
   -e APP_CURRENCY=INR \
   webkul/bagisto:latest
 ```
@@ -562,14 +562,13 @@ http://localhost
 http://localhost/admin/login
 ```
 
-### Default admin credentials
+### Credenciales del administrador
 
-| Field | Value |
-|---|---|
-| Email | `admin@example.com` |
-| Password | `admin123` |
-
-> **Change the default admin password immediately after first login** in any real deployment.
+LaLomita **no incluye credenciales públicas**. Antes de instalar definí
+`BAGISTO_ADMIN_EMAIL` y `BAGISTO_ADMIN_PASSWORD` en el `.env` (o como variables
+de entorno del contenedor). En `APP_ENV=production` la instalación falla si no
+están configuradas o si se usa la contraseña de desarrollo. La contraseña nunca
+se muestra por pantalla durante la instalación.
 
 The admin path `/admin` is the Bagisto default. To change it, pass `-e APP_ADMIN_URL=backend` at runtime — the admin panel will then be served at `/backend/login`. Unlike the variables in [§12](#12-environment-variables) that the entrypoint writes into `.env`, this one is read straight from the container environment.
 
@@ -686,9 +685,9 @@ docker exec -it -u www-data bagisto php /var/www/bagisto/artisan db:seed --force
 | `DB_PASSWORD` | `bagisto` | Database password. |
 | `APP_URL` | `http://localhost` | Public-facing URL of the store, exactly as the browser opens it, port included. Real-time notifications connect to it, so with `-p 8080:80` set `http://localhost:8080`. |
 | `APP_KEY` | baked at build | Laravel encryption key. Generated during build; override for fixed keys. |
-| `APP_LOCALE` | from `.env.example` | Application locale (e.g., `en`, `fr`, `de`). |
+| `APP_LOCALE` | from `.env.example` (`es`) | Application locale (e.g., `es`, `en`, `fr`). |
 | `APP_CURRENCY` | from `.env.example` | Default currency (e.g., `USD`, `INR`, `EUR`). |
-| `APP_TIMEZONE` | from `.env.example` (`Asia/Kolkata`) | Timezone (e.g., `UTC`, `Asia/Kolkata`). The scheduler runs each task at its time in this zone, such as campaigns at 00:00, the nightly indexing at 00:01, the image search prune at 00:05 and invoice reminders at 03:00, so set it to the store's own. |
+| `APP_TIMEZONE` | from `.env.example` (`UTC`) | Timezone (e.g., `UTC`, `America/Havana`, `America/Mexico_City`, `Europe/Madrid`). The scheduler runs each task at its time in this zone, such as campaigns at 00:00, the nightly indexing at 00:01, the image search prune at 00:05 and invoice reminders at 03:00, so set it to the store's own. |
 | `APP_ADMIN_URL` | `admin` | Admin panel URL path. Read from the container environment; the entrypoint does not write it into `.env`. |
 | `QUEUE_CONNECTION` | `database` | Connection the queue worker drains. The image runs a worker, so queued work is taken off the request; set `sync` to run it inline instead and the worker idles. |
 | `SCHEDULER_AUTOSTART` | `true` | `true` or `false`: whether Supervisor starts cron, which runs Laravel's scheduler every minute. Set `false` on every container but one when several share a database, and on all of them when a host cron entry or another container already runs `schedule:run`, or each runs every scheduled task. Any other value stops the container at boot. |
@@ -1134,7 +1133,7 @@ For structured log shipping, mount `/var/www/bagisto/storage/logs` and `/var/log
 
 ### Security checklist for real deployments
 
-- Change the default admin password (`admin@example.com` / `admin123`) after first login.
+- Definí `BAGISTO_ADMIN_EMAIL` y `BAGISTO_ADMIN_PASSWORD` antes de instalar; nunca uses credenciales de ejemplo en producción.
 - Set `APP_URL` to your real domain with HTTPS.
 - Use an external database with strong credentials for anything beyond a demo.
 - Put the container behind a reverse proxy that terminates SSL.

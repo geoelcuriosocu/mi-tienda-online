@@ -40,7 +40,7 @@ class Installer extends Command
      *
      * @var string
      */
-    protected $description = 'Bagisto installer. Use the global --no-interaction (-n) option for an unattended install that uses the existing `.env`, creates the default admin user and skips sample products. Add --demo-samples to also seed demo/sample product data, and --force to install into a production environment, which drops every existing table.';
+    protected $description = 'Instalador de LaLomita. En modo interactivo solicita el correo y la contraseña del administrador. Con --no-interaction (-n) usa BAGISTO_ADMIN_EMAIL y BAGISTO_ADMIN_PASSWORD del .env (obligatorios en producción). Añadí --demo-samples para productos de ejemplo y --force para instalar en producción, lo que borra todas las tablas.';
 
     /**
      * Environment details.
@@ -108,6 +108,18 @@ class Installer extends Command
 
         $this->loadEnvConfigs();
 
+        $unattendedCredentials = [];
+
+        if ($noInteraction) {
+            try {
+                $unattendedCredentials = $this->databaseManager->getAdminCredentials();
+            } catch (\InvalidArgumentException $e) {
+                $this->error($e->getMessage());
+
+                return self::FAILURE;
+            }
+        }
+
         $this->warn('Step: Generating key...');
         $this->call('key:generate', ['--force' => true]);
 
@@ -125,15 +137,16 @@ class Installer extends Command
         if (! $noInteraction) {
             $this->warn('Step: Create admin credentials...');
             $this->askForAdminDetails();
-        } elseif ($this->databaseManager->createAdminUser()) {
+        } elseif ($this->databaseManager->createAdminUser($unattendedCredentials)) {
             if ($this->option('demo-samples')) {
                 $this->installSampleProducts();
             }
 
-            $this->finalizeInstallation(
-                DatabaseManager::DEFAULT_ADMIN_EMAIL,
-                DatabaseManager::DEFAULT_ADMIN_PASSWORD
-            );
+            $this->finalizeInstallation($unattendedCredentials['email']);
+        } else {
+            $this->error('No se pudo crear el usuario administrador. Revisá los registros de errores.');
+
+            return self::FAILURE;
         }
 
         $this->warn('Step: Clearing cached bootstrap files...');
@@ -310,21 +323,21 @@ class Installer extends Command
 
         $adminEmail = text(
             label    : 'Enter the email address of the admin user',
-            default  : 'admin@example.com',
+            default  : config('installer.admin_email') ?? (app()->environment('production') ? '' : DatabaseManager::DEFAULT_ADMIN_EMAIL),
             validate : fn (string $value) => match (true) {
                 ! filter_var($value, FILTER_VALIDATE_EMAIL) => 'The email address you entered is not valid please try again.',
                 default => null
             }
         );
 
-        $adminPassword = text(
-            label    : 'Configure the password for the admin user',
-            default  : 'admin123',
+        $adminPassword = password(
+            label    : 'Configure la contraseña del administrador (no se muestra en pantalla)',
+            default  : config('installer.admin_password') ?? '',
             required : true,
-            validate : function (string $value) {
-                if (strlen($value) < 6) {
-                    return 'The password must be at least 6 characters.';
-                }
+            validate : fn (string $value) => match (true) {
+                mb_strlen($value) < DatabaseManager::MIN_ADMIN_PASSWORD_LENGTH => 'La contraseña debe tener al menos '.DatabaseManager::MIN_ADMIN_PASSWORD_LENGTH.' caracteres.',
+                app()->environment('production') && $value === DatabaseManager::DEFAULT_ADMIN_PASSWORD => 'La contraseña pública de desarrollo no puede usarse en producción.',
+                default => null
             }
         );
 
@@ -349,7 +362,7 @@ class Installer extends Command
                 $this->installSampleProducts();
             }
 
-            $this->finalizeInstallation($adminEmail, $adminPassword);
+            $this->finalizeInstallation($adminEmail);
         } catch (\Exception $e) {
             return $this->error($e->getMessage());
         }
@@ -374,19 +387,17 @@ class Installer extends Command
     }
 
     /**
-     * Mark the installation as complete and print the admin credentials.
+     * Mark the installation as complete. The password is never printed.
      */
-    protected function finalizeInstallation(string $adminEmail, string $adminPassword): void
+    protected function finalizeInstallation(string $adminEmail): void
     {
-        File::put(storage_path('installed'), 'Bagisto is successfully installed.');
+        File::put(storage_path('installed'), 'LaLomita is successfully installed.');
 
         $this->info('-----------------------------');
-        $this->info('Congratulations!');
-        $this->info('The installation has been finished and you can now use Bagisto.');
-        $this->info('Go to '.$this->getEnvVariable('APP_URL').'/'.$this->getEnvVariable('APP_ADMIN_URL', 'admin').' and authenticate with:');
-        $this->info('Email: '.$adminEmail);
-        $this->info('Password: '.$adminPassword);
-        $this->info('Cheers!');
+        $this->info('¡Listo! LaLomita se instaló correctamente.');
+        $this->info('Ingresá en '.$this->getEnvVariable('APP_URL').'/'.$this->getEnvVariable('APP_ADMIN_URL', 'admin'));
+        $this->info('Correo del administrador: '.$adminEmail);
+        $this->info('La contraseña no se muestra por seguridad: guardala en un lugar seguro.');
 
         Event::dispatch('bagisto.installed');
     }

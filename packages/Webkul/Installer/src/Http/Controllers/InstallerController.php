@@ -5,6 +5,7 @@ namespace Webkul\Installer\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Webkul\Installer\Helpers\DatabaseManager;
 use Webkul\Installer\Helpers\EnvironmentManager;
 use Webkul\Installer\Helpers\ServerRequirements;
@@ -166,8 +167,18 @@ class InstallerController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('admins', 'email')],
+            'password' => [
+                'required',
+                'string',
+                'min:'.DatabaseManager::MIN_ADMIN_PASSWORD_LENGTH,
+                'confirmed',
+                function ($attribute, $value, $fail) {
+                    if (app()->environment('production') && $value === DatabaseManager::DEFAULT_ADMIN_PASSWORD) {
+                        $fail('La contraseña pública de desarrollo no puede usarse en producción.');
+                    }
+                },
+            ],
         ]);
 
         $data = $request->only(['name', 'email', 'password']);

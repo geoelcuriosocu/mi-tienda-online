@@ -1034,8 +1034,8 @@
                                     <x-installer::form.control-group.control
                                         type="text"
                                         name="email"
-                                        rules="required"
-                                        value="admin@example.com"
+                                        rules="required|email"
+                                        :value="config('installer.admin_email')"
                                         :label="trans('installer::app.installer.index.create-administrator.email')"
                                         :placeholder="trans('installer::app.installer.index.create-administrator.email-address')"
                                     />
@@ -1052,7 +1052,7 @@
                                     <x-installer::form.control-group.control
                                         type="password"
                                         name="password"
-                                        rules="required|min:6"
+                                        rules="required|min:8"
                                         :value="old('password')"
                                         :label="trans('installer::app.installer.index.create-administrator.password')"
                                     />
