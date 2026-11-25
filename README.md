@@ -262,7 +262,7 @@ Los recursos oficiales están centralizados en `public/assets/branding/`:
 - `mascota-circular-1024.png`, `icono-app-192.png`, `icono-app-512.png`.
 - `logo-principal.svg`, `logo-horizontal.svg`, `logo-claro.svg`, `logo-oscuro.svg`, `isotipo.svg`, `favicon.svg`, `favicon.ico`.
 
-Los colores definitivos, extraídos del logotipo, están en `config/branding.php` y en las variables `--color-lalomita-*` de los CSS de los temas. La mascota se usa con criterio en el hero, el 404, el carrito vacío, el acceso al panel y las plantillas de correo.
+Los colores definitivos, extraídos del logotipo, están en `config/branding.php` y en las variables `--color-lalomita-*` de los CSS de los temas. La tipografía oficial es **Nunito** (cercana y legible), en reemplazo de la tipografía original del tema. La mascota se usa con criterio en el hero, el 404, el carrito vacío, el acceso al panel y las plantillas de correo.
 
 Los SVG/favicon fuente de los paquetes ya fueron reemplazados, así que un `npm run build` dentro de cada paquete no revierte la marca.
 

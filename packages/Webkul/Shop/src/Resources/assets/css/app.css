@@ -40,8 +40,8 @@
     /**
      * Fonts — the named families the storefront can ask for by utility.
      */
-    --font-poppins: "Poppins", sans-serif;
-    --font-dmserif: "DM Serif Display", serif;
+    --font-poppins: "Nunito", sans-serif;
+    --font-dmserif: "Nunito", sans-serif;
 
     /**
      * The fallback font, pinned to the stack Tailwind 3 shipped.
