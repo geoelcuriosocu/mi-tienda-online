@@ -208,7 +208,7 @@
                         <p class="mb-6 w-full place-self-end text-left">
                             <a
                                 class="bg-white text-blue-600 underline"
-                                href="https://bagisto.com/en/"
+                                href="https://github.com/geoelcuriosocu/mi-tienda-online"
                             >
                                 @lang('installer::app.installer.index.bagisto')
                             </a>
@@ -217,7 +217,7 @@
 
                             <a
                                 class="bg-white text-blue-600 underline"
-                                href="https://webkul.com/"
+                                href="https://github.com/geoelcuriosocu/mi-tienda-online"
                             >
                                 @lang('installer::app.installer.index.webkul')
                             </a>
@@ -1140,14 +1140,14 @@
 
                     <div class="flex items-center justify-between px-4 py-2.5">
                         <a
-                            href="https://forums.bagisto.com"
+                            href="https://github.com/geoelcuriosocu/mi-tienda-online/discussions"
                             class="cursor-pointer text-xs font-semibold text-blue-600"
                         >
                             @lang('installer::app.installer.index.installation-completed.bagisto-forums')
                         </a>
 
                         <a
-                            href="https://bagisto.com/en/extensions"
+                            href="https://github.com/geoelcuriosocu/mi-tienda-online"
                             class="cursor-pointer rounded-md border border-blue-700 bg-white px-3 py-1.5 font-semibold text-blue-600 hover:opacity-90"
                         >
                             @lang('installer::app.installer.index.installation-completed.explore-bagisto-extensions')

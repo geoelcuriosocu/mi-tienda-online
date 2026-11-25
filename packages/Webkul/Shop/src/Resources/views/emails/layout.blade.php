@@ -36,13 +36,20 @@
                             />
                         @else
                             <img
-                                src="{{ bagisto_asset('images/logo.svg', 'shop') }}"
+                                src="{{ asset('assets/branding/logo-principal.svg') }}"
                                 alt="{{ config('app.name') }}"
                                 width="131"
                                 height="29"
                                 style="width: 156px;height: 40px;"
                             />
                         @endif
+                        <img
+                            src="{{ asset('assets/branding/mascota-movil-256.png') }}"
+                            alt="LaLomita"
+                            width="56"
+                            height="56"
+                            style="width: 56px; height: 56px; border-radius: 50%; margin-top: 10px;"
+                        />
                     </a>
                 </div>
 
@@ -54,7 +61,7 @@
                     @lang('shop::app.emails.thanks', [
                         'link' => 'mailto:' . core()->getContactEmailDetails()['email'],
                         'email' => core()->getContactEmailDetails()['email'],
-                        'style' => 'color: #2969FF;'
+                        'style' => 'color: #F28C11;'
                     ])
                 </p>
             </div>

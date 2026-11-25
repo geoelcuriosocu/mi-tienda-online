@@ -24,9 +24,16 @@
     /**
      * Colours — the palette of named colours used in the admin.
      */
-    --color-darkGreen: #40994A;
-    --color-darkBlue:  #0044F2;
-    --color-darkPink:  #F85156;
+    /* Paleta oficial LaLomita (extraída del logotipo). */
+    --color-darkGreen: #409C06;
+    --color-darkBlue:  #F28C11;
+    --color-darkPink:  #CE1616;
+    --color-lalomita-naranja:  #F28C11;
+    --color-lalomita-amarillo: #FFC245;
+    --color-lalomita-verde:    #409C06;
+    --color-lalomita-rojo:     #CE1616;
+    --color-lalomita-crema:    #FFF3E2;
+    --color-lalomita-marron:   #2B1406;
 
     /**
      * Fonts — the named families the admin can ask for by utility.

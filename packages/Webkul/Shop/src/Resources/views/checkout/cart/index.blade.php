@@ -438,9 +438,9 @@
                         v-else
                     >
                         <img
-                            class="max-md:h-25 max-md:w-25"
-                            src="{{ bagisto_asset('images/thank-you.png') }}"
-                            alt="@lang('shop::app.checkout.cart.index.empty-product')"
+                            class="h-32 w-32 rounded-full max-md:h-25 max-md:w-25"
+                            src="{{ asset('assets/branding/mascota-movil-256.png') }}"
+                            alt="LaLomita"
                             loading="lazy"
                             decoding="async"
                         />

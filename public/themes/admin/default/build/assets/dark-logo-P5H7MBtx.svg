@@ -1,6 +1,8 @@
-<svg width="130" height="36" viewBox="0 0 130 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="18" cy="18" r="15" fill="#4ADE80"/>
-  <circle cx="18" cy="18" r="11.8" fill="#14532D"/>
-  <path d="M18 6.2V29.8M6.2 18H29.8M9.7 9.7L26.3 26.3M26.3 9.7L9.7 26.3" stroke="#4ADE80" stroke-width="1.5"/>
-  <text x="41" y="24.5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#F8FAFC">LaLomita</text>
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LaLomita">
+  <title>LaLomita</title>
+  <circle cx="28" cy="28" r="26" fill="#F28C11" stroke="#FFF3E2" stroke-width="3"/>
+  <path d="M28 44C19 39 16 32 19 25c7 0 12 4 13 10 1-7 6-11 13-11 3 8-2 15-10 19-2 1-4 1-7 1Z" fill="#409C06" stroke="#FFF3E2" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="39" cy="39" r="6" fill="#CE1616" stroke="#FFF3E2" stroke-width="2"/>
+  <text x="68" y="36" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">LaLomita</text>
+  <text x="70" y="49" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="700" letter-spacing="2.2" fill="#FFC245">FRESCOS Y CERCA</text>
 </svg>

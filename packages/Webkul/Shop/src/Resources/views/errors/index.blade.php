@@ -22,6 +22,12 @@
 			</div>
 
             <div class="absolute left-1/2 top-37/50 mt-10 -translate-x-1/2 -translate-y-1/2 text-center max-868:w-full max-md:top-3/5">
+                <img
+                    class="mx-auto mb-4 h-24 w-24 rounded-full"
+                    src="{{ asset('assets/branding/mascota-movil-256.png') }}"
+                    alt="LaLomita"
+                />
+
                 <h1 class="text-3xl font-semibold max-md:text-xl">
                     @lang("shop::app.errors.{$errorCode}.title")
                 </h1>

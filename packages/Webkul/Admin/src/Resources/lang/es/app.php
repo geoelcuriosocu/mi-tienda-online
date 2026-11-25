@@ -6,7 +6,7 @@ return [
             'email' => 'Dirección de Correo Electrónico',
             'forget-password-link' => '¿Olvidaste tu Contraseña?',
             'password' => 'Contraseña',
-            'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+            'powered-by-description' => 'Desarrollado por LaLomita.',
             'submit-btn' => 'Iniciar Sesión',
             'title' => 'Iniciar Sesión',
         ],
@@ -16,7 +16,7 @@ return [
                 'email' => 'Correo electrónico registrado',
                 'email-not-exist' => 'El correo electrónico no existe',
                 'page-title' => 'Olvidar contraseña',
-                'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+                'powered-by-description' => 'Desarrollado por LaLomita.',
                 'reset-link-sent' => 'Enlace para restablecer la contraseña enviado',
                 'reset-link-failed' => 'No se ha podido enviar el enlace para restablecer la contraseña. Inténtelo de nuevo más tarde.',
                 'sign-in-link' => '¿Volver a iniciar sesión?',
@@ -30,7 +30,7 @@ return [
             'confirm-password' => 'Confirmar contraseña',
             'email' => 'Correo electrónico registrado',
             'password' => 'Contraseña',
-            'powered-by-description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+            'powered-by-description' => 'Desarrollado por LaLomita.',
             'submit-btn' => 'Restablecer contraseña',
             'title' => 'Restablecer contraseña',
         ],
@@ -251,13 +251,13 @@ return [
     'help' => [
         'index' => [
             'title' => 'Ayuda y recursos',
-            'description' => 'Todo lo que necesita para aprovechar al máximo Bagisto — alojamiento, soporte y servicios profesionales, además de extensiones y documentación para desarrolladores.',
+            'description' => 'Todo lo que necesita para aprovechar al máximo LaLomita — alojamiento, soporte y servicios profesionales, además de extensiones y documentación para desarrolladores.',
 
             'services-title' => 'Servicios',
             'resources-title' => 'Recursos y documentación',
 
             'cloud-hosting' => 'Alojamiento en la nube',
-            'cloud-hosting-info' => 'Alojamiento en la nube gestionado y rentable — lance su tienda Bagisto en la nube en minutos, totalmente optimizada y escalable.',
+            'cloud-hosting-info' => 'Alojamiento en la nube gestionado y rentable — lance su tienda LaLomita en la nube en minutos, totalmente optimizada y escalable.',
 
             'support' => 'Soporte y mantenimiento',
             'support-info' => 'Soporte técnico dedicado y planes de mantenimiento continuo para mantener su tienda segura, actualizada y funcionando sin problemas.',
@@ -266,22 +266,22 @@ return [
             'paid-services-info' => 'Ayuda experta para la integración de módulos, personalización, migración de datos, actualizaciones de versión y desarrollo a medida.',
 
             'extensions' => 'Extensiones',
-            'extensions-info' => 'Explore complementos oficiales y de la comunidad para ampliar Bagisto con nuevos conectores, canales y funciones.',
+            'extensions-info' => 'Explore complementos oficiales y de la comunidad para ampliar LaLomita con nuevos conectores, canales y funciones.',
 
             'docs' => 'Documentación para desarrolladores y blogs',
             'docs-info' => 'Guías para desarrolladores, tutoriales y los últimos artículos para ayudarle a crear, configurar y mantenerse al día.',
 
             'api-docs' => 'Documentación de la API',
-            'api-docs-info' => 'Referencia completa de la API REST y GraphQL con endpoints, autenticación y ejemplos para integrar Bagisto con su stack.',
+            'api-docs-info' => 'Referencia completa de la API REST y GraphQL con endpoints, autenticación y ejemplos para integrar LaLomita con su stack.',
 
             'community' => 'Foro de la comunidad',
-            'community-info' => 'Haga preguntas, comparta ideas y conecte con miles de desarrolladores y comerciantes de Bagisto de todo el mundo.',
+            'community-info' => 'Haga preguntas, comparta ideas y conecte con miles de desarrolladores y comerciantes de LaLomita de todo el mundo.',
 
             'video-tutorials' => 'Tutoriales en vídeo',
             'video-tutorials-info' => 'Tutoriales en vídeo paso a paso que cubren la instalación, la configuración y la gestión diaria de la tienda.',
 
             'cta-title' => '¿Todavía necesita ayuda?',
-            'cta-description' => 'Hable con el equipo de Bagisto sobre alojamiento, desarrollo personalizado o cualquier otra cosa.',
+            'cta-description' => 'Hable con el equipo de LaLomita sobre alojamiento, desarrollo personalizado o cualquier otra cosa.',
             'cta-btn' => 'Contáctenos',
         ],
     ],
@@ -4546,7 +4546,7 @@ return [
                     'title' => 'General',
 
                     'sections' => [
-                        'bagisto' => 'Bagisto',
+                        'bagisto' => 'LaLomita',
                         'cache' => 'En caché',
                         'database' => 'Base de datos',
                         'drivers' => 'Controladores',
@@ -6146,7 +6146,7 @@ return [
             ],
 
             'powered-by' => [
-                'description' => 'Desarrollado por :bagisto, un proyecto de código abierto de :webkul.',
+                'description' => 'Desarrollado por LaLomita.',
             ],
         ],
 
@@ -6540,7 +6540,7 @@ return [
     ],
 
     'footer' => [
-        'copy-right' => 'Desarrollado por <a href="https://bagisto.com/" target="_blank">Bagisto</a>, Un Proyecto Comunitario por <a href="https://webkul.com/" target="_blank">Webkul</a>',
+        'copy-right' => '© LaLomita · Frescos y cerca',
     ],
 
     'emails' => [
@@ -6743,7 +6743,7 @@ return [
             'refunded-at' => 'Reembolsado el',
 
             'actions' => 'Acciones',
-            'actions-note' => 'Los reembolsos se procesan manualmente con las herramientas existentes de Bagisto de pedido / reembolso / RMA. Use estas acciones para registrar el resultado en la prueba del desistimiento.',
+            'actions-note' => 'Los reembolsos se procesan manualmente con las herramientas existentes de LaLomita de pedido / reembolso / RMA. Use estas acciones para registrar el resultado en la prueba del desistimiento.',
             'resend-confirmation' => 'Reenviar correo de confirmación',
             'mark-refunded' => 'Marcar como reembolsado',
             'refund-note-label' => 'Referencia del reembolso (opcional)',

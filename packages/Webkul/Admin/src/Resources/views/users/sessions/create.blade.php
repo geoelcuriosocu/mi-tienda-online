@@ -21,6 +21,13 @@
                 />
             @endif
 
+            <!-- Mascota oficial LaLomita -->
+            <img
+                class="h-20 w-20 rounded-full"
+                src="{{ asset('assets/branding/mascota-movil-256.png') }}"
+                alt="LaLomita"
+            />
+
             <div class="box-shadow flex min-w-75 flex-col rounded-md bg-white dark:bg-gray-900">
                 <!-- Login Form -->
                 <x-admin::form :action="route('admin.session.store')">
@@ -99,7 +106,7 @@
 
             <!-- Powered By -->
             <div class="text-sm font-normal">
-                <a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://github.com/geoelcurioso/mi-tienda-online">LaLomita</a> &middot; Basado en <a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://bagisto.com/en/">Bagisto</a> (MIT)
+                <a class="text-blue-600 hover:underline dark:text-darkBlue" href="https://github.com/geoelcurioso/mi-tienda-online">LaLomita</a> &middot; Frescos y cerca
             </div>
         </div>
     </div>
